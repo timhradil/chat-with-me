@@ -1,0 +1,57 @@
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+}
+.message {
+  --r: 25px; /* the radius */
+  --t: 20px; /* the size of the tail */
+
+  max-width: 60%;
+  width: fit-content;
+  padding: calc(2 * var(--r) / 3);
+  mask: radial-gradient(var(--t) at var(--_d) 0, #0000 98%, #000 102%) var(--_d)
+      100% / calc(100% - var(--r)) var(--t) no-repeat,
+    conic-gradient(at var(--r) var(--r), #000 75%, #0000 0) calc(var(--r) / -2)
+      calc(var(--r) / -2) padding-box,
+    radial-gradient(50% 50%, #000 98%, #0000 101%) 0 0 / var(--r) var(--r) space
+      padding-box;
+  background: #474b52;
+  color: #fff;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.user {
+  --_d: 100%;
+  border-right: var(--t) solid #474b52;
+  margin-left: auto;
+  margin-right: 40px;
+  text-align: right;
+}
+
+.machine {
+  --_d: 0%;
+  float: left;
+  border-left: var(--t) solid #0000;
+  margin-right: auto;
+  margin-left: 40px;
+  text-align: left;
+  background-color: orange;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.message iframe {
+  padding-top: 10px;
+}
+
+.message a {
+  color: white;
+}

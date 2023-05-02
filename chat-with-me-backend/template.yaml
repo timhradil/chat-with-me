@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  chat-with-me-backend
+
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 1024
+  Api:
+    TracingEnabled: false
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'*'"
+      AllowOrigin: "'*'"
+
+
+Resources:
+  GetUserSelectionFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: get_user_selection/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Events:
+        getUserSelection:
+          Type: Api 
+          Properties:
+            Path: /getUserSelection
+            Method: POST 
+      Policies:
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: "arn:aws:secretsmanager:us-west-2:586103959850:secret:OpenAIKey-sXAkvm"
+
+Outputs:
+  GetUserSelectionApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Stage/getUserSelection/"

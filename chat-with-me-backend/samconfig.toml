@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "chat-with-me"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1w0scr9zffg37"
+s3_prefix = "chat-with-me"
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []

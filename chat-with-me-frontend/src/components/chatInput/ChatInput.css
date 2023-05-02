@@ -1,0 +1,20 @@
+.chat-input {
+  background-color: #474b52;
+  height: 40px;
+  width: calc(100vw - 100px);
+  bottom: 40px;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.chat-input input {
+  width: 95%;
+  height: 30px;
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+}
+
+.chat-input input:focus {
+  outline: none;
+}
