@@ -1,9 +1,15 @@
 .messages {
   width: 100%;
   position: absolute;
-  top: 0;
+  bottom: 90px;
   height: calc(100vh - 100px);
   overflow: scroll;
   display: flex;
   flex-direction: column-reverse;
+}
+
+@media screen and (max-width: 470px) {
+  .messages {
+    bottom: 80px;
+  }
 }
